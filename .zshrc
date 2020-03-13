@@ -20,10 +20,15 @@ DISABLE_AUTO_UPDATE=false
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git sudo z)
+plugins=(git sudo z history history-substring-search)
 
 # User configuration
 export PATH="$PATH:/usr/local/bin:/usr/local/sbin:$HOME/bin:/usr/bin:/bin:/usr/sbin:/sbin"
 export PATH="$(ruby -rrubygems -e 'puts Gem.user_dir')/bin:$PATH"
+
+# Allow history search via up/down keys.
+source /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+bindkey "^[[A" history-substring-search-up
+bindkey "^[[B" history-substring-search-down
 
 source $ZSH/oh-my-zsh.sh
