@@ -1,0 +1,5 @@
+# Set-up proxy & certificate settings
+. $HOME/.proxy
+. $HOME/.certs
+# Homebrew set-up
+export HOMEBREW_BOTTLE_DOMAIN=https://artifactory.awstrp.net/artifactory/list/homebrew-bottles/bottles
