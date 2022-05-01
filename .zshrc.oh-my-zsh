@@ -14,7 +14,6 @@ DISABLE_AUTO_UPDATE=false
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(git sudo z history history-substring-search zsh-autosuggestions)
 # Allow history search via up/down keys.
-. /usr/local/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 bindkey "^[[A" history-substring-search-up
 bindkey "^[[B" history-substring-search-down
 . $ZSH/oh-my-zsh.sh
