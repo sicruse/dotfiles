@@ -11,7 +11,7 @@ if [[ -d $HOME/.pyenv ]]; then
   export PATH="$PYENV_ROOT/shims:$PATH"
   if command -v pyenv 1>/dev/null 2>&1; then
     eval "$(pyenv init -)"
-    eval "$(pyenv virtualenv-init -)"
+    # eval "$(pyenv virtualenv-init -)"
   fi
   # Assure that homebrew uses the system python version
   alias brew="env PATH=${PATH/\/Users\/trpfe55\/\.pyenv\/shims:/} brew"
