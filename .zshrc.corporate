@@ -1,21 +1,29 @@
-## ZScaler App proxy settings
-# See https://confluence.awstrp.net/display/337086/Zscaler+App+-+shell+configuration
+if [[ $OSTYPE == darwin* ]]; then
+  ## ZScaler App proxy settings
+  # See https://confluence.awstrp.net/display/337086/Zscaler+App+-+shell+configuration
 
-export all_proxy=127.0.0.1:9000
-export http_proxy=127.0.0.1:9000
-export https_proxy=127.0.0.1:9000
-export no_proxy=localhost,127.0.0.1,.troweprice.io,.troweprice.com,.troweprice.net,.awstrp.net,*.local
-export ALL_PROXY=127.0.0.1:9000
-export HTTP_PROXY=127.0.0.1:9000
-export HTTPS_PROXY=127.0.0.1:9000
-export NO_PROXY=localhost,127.0.0.1,.troweprice.io,.troweprice.com,.troweprice.net,.awstrp.net,*.local
+  export all_proxy=127.0.0.1:9000
+  export http_proxy=127.0.0.1:9000
+  export https_proxy=127.0.0.1:9000
+  export no_proxy=localhost,127.0.0.1,.troweprice.io,.troweprice.com,.troweprice.net,.awstrp.net,*.local
+  export ALL_PROXY=127.0.0.1:9000
+  export HTTP_PROXY=127.0.0.1:9000
+  export HTTPS_PROXY=127.0.0.1:9000
+  export NO_PROXY=localhost,127.0.0.1,.troweprice.io,.troweprice.com,.troweprice.net,.awstrp.net,*.local
 
-## Corporate certificate settings
+  ## Corporate certificate settings
 
-export VAULT_CACERT=$HOME/.aws/certs_all_trp.crt
-export AWS_CA_BUNDLE=$HOME/.aws/certs_all_trp.crt
-export SSL_CERT_FILE=$HOME/.aws/certs_all_trp.crt
-export REQUESTS_CA_BUNDLE=$HOME/.aws/certs_all_trp.crt
+  export VAULT_CACERT=$HOME/.aws/certs_all_trp.crt
+  export AWS_CA_BUNDLE=$HOME/.aws/certs_all_trp.crt
+  export SSL_CERT_FILE=$HOME/.aws/certs_all_trp.crt
+  export REQUESTS_CA_BUNDLE=$HOME/.aws/certs_all_trp.crt
 
-## Homebrew Artifactory settings
-export HOMEBREW_BOTTLE_DOMAIN=https://artifactory.awstrp.net/artifactory/list/homebrew-bottles/bottles
+  ## Homebrew Artifactory settings
+  export HOMEBREW_BOTTLE_DOMAIN=https://artifactory.awstrp.net/artifactory/list/homebrew-bottles/bottles
+
+else
+
+  ## Linux Developer Desktop VSCode alias to surpress terminal output
+  [[ -f $HOME/bin/code ]] && alias code='code >/dev/null 2>&1'
+
+fi
