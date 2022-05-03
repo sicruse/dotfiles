@@ -1,31 +1,40 @@
-[user]
-	name = Si Cruse
-	email = si@sicruse.com
-
 [color]
   ui = true
 
-[core]
-  editor = atom --wait
-	excludesfile = ~/.gitignore
+# [commit]
+# 	template = ~/.stCommitMsg
 
-[merge]
-  keepBackup = false
-  tool = custom
+## Git identity & tooling needs to be customized depending upon two factors:
+# Linux vs Mac development environment (Windows is to be considered in the future)
+# Corporate vs Personal project work
 
-[mergetool "custom"]
-  cmd = /Applications/p4merge.app/Contents/Resources/launchp4merge "$PWD/$BASE" "$PWD/$REMOTE" "$PWD/$LOCAL" "$PWD/$MERGED"
-  keepTemporaries = false
-  trustExitCode = false
-  keepBackup = false
+##
+# *NOTE* if you are having trouble with the conditional includes
+# 'git config -l' is your friend!
 
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path =
+# determine host type by using the root directory convention
+[includeIf "gitdir:/Users/"]
+    path = ~/.gitconfig-macos
+[includeIf "gitdir:/home/"]
+    path = ~/.gitconfig-linux
+[includeIf "gitdir:/nfs/"]
+    path = ~/.gitconfig-linux	
+# [includeIf "gitdir:C:"]
+#     path = ~/.gitconfig-windows
 
-[mergetool "sourcetree"]
-	cmd = /Applications/Sourcetree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
+# If working in a Personal MacOS context use the personal config
+# determined by the presence of my personal user ID in the path
+[includeIf "gitdir:/Users/sicruse/"]
+	path = ~/.gitconfig-personal
 
-[commit]
-	template = ~/.stCommitMsg
+# If working in a Corporate MacOS context use the corporate config
+# determined by the presence of my corporate user ID in the path
+[includeIf "gitdir:/Users/trpfe55/"]
+	path = ~/.gitconfig-corporate
+
+# If working in a Corporate Linux context use the corporate config
+# determined by the presence of Linux Developer Desktop standard path naming
+[includeIf "gitdir:/home/develop/"]
+	path = ~/.gitconfig-corporate
+[includeIf "gitdir:/nfs/"]
+	path = ~/.gitconfig-corporate
