@@ -55,6 +55,9 @@ export PATH="$PATH:/usr/bin:/bin:/usr/sbin:/sbin"
 ## Interpreter Version Manager Configuration, e.g. rvm / nvm / pyenv
 [[ -f $HOME/.zshrc.ivm ]] && . $HOME/.zshrc.ivm
 
+## Lastpass Ansible Vault integration
+[[ -f $HOME/.zshrc.lastpass-ansible ]] && . $HOME/.zshrc.lastpass-ansible
+
 ## Powerline Prompt Configuration
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ -f $HOME/.p10k.zsh ]] && . $HOME/.p10k.zsh
